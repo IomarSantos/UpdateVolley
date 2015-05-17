@@ -1,12 +1,17 @@
 package iomar.updatevolley;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
-public class MainActivity extends ActionBarActivity {
+import org.json.JSONObject;
+
+
+public class MainActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +39,26 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Callback method that an error has been occurred with the
+     * provided error code and optional user-readable message.
+     *
+     * @param error
+     */
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        
+    }
+
+    /**
+     * Called when a response is received.
+     *
+     * @param response
+     */
+    @Override
+    public void onResponse(JSONObject response) {
+
     }
 }
